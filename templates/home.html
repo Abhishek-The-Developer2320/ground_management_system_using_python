@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Ground Booking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styling */
+        body, html {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* Video Background Styling */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(70%);
+        }
+
+        /* Header Styling */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(5px);
+        }
+        header h1 {
+            margin: 0;
+            color: #00c7ff;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+            font-size: 1.8em;
+        }
+        header .auth-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Button Styling */
+        .btn {
+            padding: 10px 20px;
+            background: #00c7ff;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+            font-size: 0.9em;
+        }
+        .btn:hover {
+            background: #007ba3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Ground Images Section */
+        .grounds-gallery {
+            padding: 40px 20px;
+            text-align: center;
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+        .grounds-gallery h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #00c7ff;
+        }
+        .ground-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .ground-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .ground-item img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+        .ground-item:hover img {
+            transform: scale(1.1);
+        }
+        .ground-item:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
+        }
+        .ground-item p {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            margin: 0;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            font-weight: 500;
+            text-align: center;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Background -->
+    <video autoplay muted loop class="video-background">
+        <source src="{{ url_for('static', filename='videos/sample-video.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Header -->
+    <header>
+        <div class="logo"><h1>Sports Grounds</h1></div>
+        <div class="auth-links">
+            <a href="/about" class="btn">About Grounds</a>
+            <a href="/login" class="btn">User Login</a>
+            <a href="/admin-login" class="btn">Admin Login</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="grounds-gallery">
+            <h2>Explore Our Grounds</h2>
+            <div class="ground-images">
+                <!-- Football Ground -->
+                <a href="/booking/football-ground" class="ground-item">
+                    <img src="{{ url_for('static', filename='images/football.jpeg') }}" alt="Football Ground">
+                    <p>Football Ground</p>
+                </a>
+                <!-- Tennis Ground -->
+                <a href="/booking/tennis-ground" class="ground-item">
+                    <img src="{{ url_for('static', filename='images/tennis.jpeg') }}" alt="Tennis Ground">
+                    <p>Tennis Ground</p>
+                </a>
+                <!-- Badminton Ground -->
+                <a href="/booking/badminton-ground" class="ground-item">
+                    <img src="{{ url_for('static', filename='images/badmi.jpeg') }}" alt="Badminton Ground">
+                    <p>Badminton Ground</p>
+                </a>
+                <!-- Cricket Ground -->
+                <a href="/booking/cricket-ground" class="ground-item">
+                    <img src="{{ url_for('static', filename='images/cric.jpeg') }}" alt="Cricket Ground">
+                    <p>Cricket Ground</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Sports Ground Booking. All rights reserved.</p>
+    </footer>
+</body>
+</html>

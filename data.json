@@ -1,0 +1,69 @@
+{
+    "users": [
+        {
+            "user_id": 1,
+            "name": "Abhishek Jain",
+            "email": "a4593@gmail.com",
+            "password": "123456",
+            "role": "user"
+        },
+        {
+            "user_id": 2,
+            "name": "23mcmc34",
+            "email": "ajain4593@gmail.com",
+            "password": "123456",
+            "role": "admin"
+        },
+        {
+            "user_id": 3,
+            "name": "fgf",
+            "email": "abittu4593@gmail.com",
+            "password": "123456",
+            "role": "user"
+        },
+        {
+            "user_id": 4,
+            "name": "pratap",
+            "email": "asdfgh@dfg.com",
+            "password": "1234567",
+            "role": "admin"
+        },
+        {
+            "user_id": 5,
+            "name": "rohit",
+            "email": "abc@gmail.com",
+            "password": "123456",
+            "role": "user"
+        }
+    ],
+    "bookings": [
+        {
+            "booking_id": 1,
+            "user_id": 1,
+            "ground": "Football",
+            "date": "2024-11-13",
+            "time": "08:32",
+            "duration": 3
+        }
+    ],
+    "events": [
+        {
+            "event_id": 1,
+            "event_name": "cricket",
+            "event_date": "2024-10-28",
+            "ground": "ff"
+        },
+        {
+            "event_id": 2,
+            "event_name": "sukoon",
+            "event_date": "2024-11-22",
+            "ground": "Ground 1"
+        },
+        {
+            "event_id": 3,
+            "event_name": "christmas",
+            "event_date": "2024-11-25",
+            "ground": "Ground 1"
+        }
+    ]
+}

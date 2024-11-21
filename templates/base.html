@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ground Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+    <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+
+        {% if 'user_id' in session %}
+            {% if session['role'] == 'admin' %}
+                <!-- Admin Navbar -->
+                <li><a href="{{ url_for('admin_dashboard') }}">Admin Dashboard</a></li>
+                <li><a href="{{ url_for('schedule_event') }}">Schedule Event</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% else %}
+                <!-- User Navbar -->
+                <li><a href="{{ url_for('user_dashboard') }}">User Dashboard</a></li>
+                <li><a href="{{ url_for('book_ground') }}">Book Ground</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% endif %}
+        {% else %}
+            <!-- Login Option for User -->
+            <li><a href="{{ url_for('login') }}">Login as User</a></li>
+            <!-- Login Option for Admin -->
+            <li><a href="{{ url_for('admin_login') }}">Login as Admin</a></li>
+            <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+        {% endif %}
+    </ul>
+</nav>
+
+<!-- Main content -->
+{% block content %}{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Events</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .add-event-form {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+
+        .add-event-form input, .add-event-form select, .add-event-form button {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .add-event-form button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .add-event-form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+
+    <!-- Display Events -->
+    <h2>Manage Events</h2>
+    <table>
+        <tr>
+            <th>Event ID</th>
+            <th>Event Name</th>
+            <th>Event Date</th>
+            <th>Ground</th>
+        </tr>
+        {% for event in events %}
+        <tr>
+            <td>{{ event.event_id }}</td>
+            <td>{{ event.event_name }}</td>
+            <td>{{ event.event_date }}</td>
+            <td>{{ event.ground }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!-- Add Event Form -->
+    <div class="add-event-form">
+        <h3>Add New Event</h3>
+        <form action="{{ url_for('manage_events') }}" method="POST">
+            <label for="event_name">Event Name:</label>
+            <input type="text" id="event_name" name="event_name" required>
+
+            <label for="event_date">Event Date:</label>
+            <input type="date" id="event_date" name="event_date" required>
+
+            <label for="ground">Ground:</label>
+            <select id="ground" name="ground" required>
+                <option value="Ground 1">Cricket</option>
+                <option value="Ground 2">Football</option>
+                <option value="Ground 4">Tennis</option>
+                <option value="Ground 5">Badminton Complex</option>
+            </select>
+
+            <button type="submit">Add Event</button>
+        </form>
+    </div>
+
+</body>
+</html>

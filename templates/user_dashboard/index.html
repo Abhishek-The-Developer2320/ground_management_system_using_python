@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <style>
+        /* Simple Navbar Styling */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            background: #007bff;
+            padding: 10px 20px;
+            color: #fff;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        
+        /* Container for the content */
+        .container {
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        /* Center the page content */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h2 {
+            color: #007bff;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-left">
+            <a href="/">Home</a>
+            <a href="/user-dashboard">User Dashboard</a>
+            <a href="/book-ground">Book Ground</a>
+        </div>
+        <div class="nav-right">
+            {% if user_logged_in %}
+                <a href="/logout">Logout</a>
+            {% else %}
+                <a href="/login">Login</a>
+                <a href="/signup">Sign Up</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="content">
+            <h2>User Dashboard</h2>
+            
+            <h3>Bookings</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Booking ID</th>
+                        <th>User ID</th>
+                        <th>Ground</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Duration(in hrs)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for booking in bookings %}
+                        <tr>
+                            <td>{{ booking.booking_id }}</td>
+                            <td>{{ booking.user_id }}</td>
+                            <td>{{ booking.ground }}</td>
+                            <td>{{ booking.date }}</td>
+                            <td>{{ booking.time }}</td>
+                            <td>{{ booking.duration }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            
+            <h3>Events</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Event ID</th>
+                        <th>Ground</th>
+                        <th>Event Date</th>
+                        <th>Event Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for event in events %}
+                        <tr>
+                            <td>{{ event.event_id }}</td>
+                            <td>{{ event.ground }}</td>
+                            <td>{{ event.event_date }}</td>
+                            <td>{{ event.event_name }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            
+            <!-- <h3>Users</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Email</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                    </tr>
+                </thead> -->
+                <tbody>
+                    <!-- {% for user in users %}
+                        <tr>
+                            <td>{{ user.user_id }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.name }}</td>
+                            <td>{{ user.phone }}</td>
+                        </tr>
+                    {% endfor %} -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

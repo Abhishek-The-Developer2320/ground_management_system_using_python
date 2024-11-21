@@ -1,0 +1,21 @@
+<form method="POST" action="/check-ground">
+    <label for="ground">Choose a Ground:</label>
+    <select id="ground" name="ground">
+        <option value="Football Ground">Football Ground</option>
+        <option value="Cricket Ground">Cricket Ground</option>
+        <option value="Tennis Court">Tennis Court</option>
+        <option value="Basketball Court">Basketball Court</option>
+    </select>
+    <label for="time_slot">Choose a Time Slot:</label>
+    <input type="datetime-local" id="time_slot" name="time_slot" required>
+    <button type="submit">Check Availability</button>
+</form>
+<!-- {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class="flashed-messages">
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %} -->

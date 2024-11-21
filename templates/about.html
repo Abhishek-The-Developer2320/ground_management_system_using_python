@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Our Grounds</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header, footer {
+            background-color: #333;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        .ground-info {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .ground-info h3 {
+            margin: 0 0 10px;
+        }
+        .ground-info p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>About Our Grounds</h1>
+    </header>
+
+    <main>
+        <div class="ground-info">
+            <h3>Football Ground</h3>
+            <p>Location: Area A</p>
+            <p>Capacity: 500 people</p>
+            <p>Features: Well-maintained grass, seating stands, floodlights.</p>
+        </div>
+
+        <div class="ground-info">
+            <h3>Badminton Ground</h3>
+            <p>Location: Sports Complex</p>
+            <p>Indoor Facility: Yes</p>
+            <p>Features: Synthetic court flooring, seating for 100 people.</p>
+        </div>
+
+        <div class="ground-info">
+            <h3>Cricket Ground</h3>
+            <p>Location: Central Field</p>
+            <p>Pitch Type: Turf</p>
+            <p>Features: Spectator stands, training nets, practice pitch.</p>
+        </div>
+
+        <!-- Add more ground information as needed -->
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Sports Ground Booking. All rights reserved.</p>
+    </footer>
+</body>
+</html>
